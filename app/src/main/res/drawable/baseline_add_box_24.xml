@@ -1,0 +1,33 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:height="24dp"
+    android:width="24dp"
+    android:viewportHeight="24"
+    android:viewportWidth="24">
+
+    <!-- Capa do Livro -->
+    <path
+        android:fillColor="#8B4513"
+    android:strokeColor="#000000"
+    android:strokeWidth="1"
+    android:pathData="M4,2h16v20H4z" />
+
+    <!-- Página Esquerda -->
+    <path
+        android:fillColor="#FFFFFF"
+    android:strokeColor="#000000"
+    android:strokeWidth="1"
+    android:pathData="M4,2l12,8v14H4z" />
+
+    <!-- Página Direita -->
+    <path
+        android:fillColor="#FFFFFF"
+    android:strokeColor="#000000"
+    android:strokeWidth="1"
+    android:pathData="M16,2l4,4v16h-4z" />
+
+    <path
+        android:fillColor="#000000"
+        android:strokeColor="#000000"
+        android:strokeWidth="1"
+        android:pathData="M16,6h4v1h-4z" />
+</vector>

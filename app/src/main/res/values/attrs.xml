@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CustomToolbar">
+        <attr name="toolbar_title" format="string"/>
+        <attr name="toolbar_is_left_icon_visible" format="boolean"/>
+        <attr name="toolbar_is_right_icon_visible" format="boolean"/>
+    </declare-styleable>
+</resources>
