@@ -1,6 +1,7 @@
 package com.gabssa.mangaself
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -23,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setupNavigation()
+
     }
 
     private fun setupNavigation() {
@@ -31,6 +33,12 @@ class MainActivity : AppCompatActivity() {
 
         val bottomNavView: BottomNavigationView = binding.bottomNavigation
         bottomNavView.setupWithNavController(navController)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        Log.d("adsdadad", " fafsfas")
     }
 
     override fun onSupportNavigateUp(): Boolean {

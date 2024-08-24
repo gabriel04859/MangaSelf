@@ -1,15 +1,11 @@
 package com.gabssa.mangaself.ui.add
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
-import com.gabssa.mangaself.R
 import com.gabssa.mangaself.databinding.FragmentAddBinding
 import com.gabssa.mangaself.ui.base.BaseFragment
 import com.gabssa.mangaself.utils.TextValidator
@@ -26,6 +22,26 @@ class AddFragment : BaseFragment<FragmentAddBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        bottomNavigatorVisibility(false)
+
+        setupEditTextListeners()
+
+        binding?.customToolbar?.rightIconClickListener {
+            findNavController().popBackStack()
+        }
+
+        binding?.buttonAddImagem?.setOnClickListener {
+            Toast.makeText(requireContext(), "Clicked", Toast.LENGTH_SHORT).show()
+        }
+
+        binding?.buttonAddImagem?.setOnClickListener {
+            PickImageBottomSheet().also {
+                it.show(childFragmentManager, it.tag)
+            }
+        }
+    }
+
+    private fun setupEditTextListeners() {
         binding?.also {
             val fields = listOf(
                 it.editName,
@@ -37,10 +53,12 @@ class AddFragment : BaseFragment<FragmentAddBinding>() {
             TextValidator(fields).fieldsObservables { isVisible ->
                 binding?.buttonRegister?.isEnabled = isVisible
             }
-
-            it.customToolbar.rightIconClickListener {
-                findNavController().popBackStack()
-            }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        bottomNavigatorVisibility(true)
+
     }
 }
